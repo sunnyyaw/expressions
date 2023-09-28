@@ -7,7 +7,7 @@ class Fraction:
     @classmethod
     def randomInit(cls,max):
         denominator = random.randint(1,max-1)
-        numerator = random.randint(1,10*denominator-1)
+        numerator = random.randint(1,max*denominator-1)
         return Fraction(numerator,denominator)
     
     @classmethod

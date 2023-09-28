@@ -76,13 +76,13 @@ def verifyAnswers(exercisesPath,answersPath):
             else:
                 wrongs.append(i)
             i+=1
-    print('Correct:'+str(rights))
-    print('Worng:'+str(wrongs))
+    print('Correct:'+str(len(rights))+str(rights))
+    print('Wrong:'+str(len(wrongs))+str(wrongs))
 
 def main():
     argv = sys.argv[1:]
-    n = 10
-    r = 3
+    n = 10000
+    r = 10
     e = None
     a = None
     try:
@@ -99,13 +99,12 @@ def main():
         elif opt in ('-a'):
             a = arg
     
-    results = randomGenerate(n,r)
-    for result in results:
-        print(str(result)+' = '+str(result.getValue()))
-    storeExercises(results)
-    storeAnswers(results)
     if(e is not None and a is not None):
         verifyAnswers(e,a)
+    else:
+        results = randomGenerate(n,r)
+        storeExercises(results)
+        storeAnswers(results)
 
 if __name__ == "__main__":
     main()
